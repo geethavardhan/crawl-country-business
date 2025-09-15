@@ -14,7 +14,7 @@ The project extracts business data from data.gov.au and matches it with business
 ### Loading and Processing
 
 - Output matched records as CSV files, made available in an S3 bucket for downstream ETL.
-- Load processed business-domain mappings directly into a Postgres DB, using batch import utilities (e.g., `COPY`, `psycopg2`, or `SQLAlchemy` bulk inserts) for efficient performance.[1][3]
+- Load processed business-domain mappings directly into a Postgres DB, using batch import utilities (e.g., `COPY`, `psycopg2`, or `SQLAlchemy` bulk inserts) for efficient performance. 
 
 ### Overall Workflow
 
@@ -22,4 +22,15 @@ The project extracts business data from data.gov.au and matches it with business
 2. **Transform**: Clean, match, and enrich using RapidFuzz.
 3. **Load**: Write CSVs to S3, then import results to Postgres.
 
+### Airflow Dag Overview 
+
+extract_common_crawl   extract_au_abr
+           \             /
+        process_common_crawl   process_au_abr
+                 \           /
+                 domain_match
+                        |
+                 load_postgres
+
 This approach ensures a scalable, reproducible workflow for linking Australian business entities with their possible web domains using open government and web-scale data.
+
