@@ -20,8 +20,8 @@ def domain_root(domain):
     return parts[-2]
 
 # --- load data ---
-abr = pd.read_csv("/Users/geethavardhan/Documents/personal-projects/firmable/processing/abn.csv" , low_memory=False ,   nrows=1_000_000 )
-cc = pd.read_csv("/Users/geethavardhan/Documents/personal-projects/firmable/processing/au_domains_march2025.csv")
+abr = pd.read_csv("/path/tocsv" , low_memory=False ,   nrows=1_000_000 )
+cc = pd.read_csv("path/tocsv")
 
 # normalize names
 abr["Entity_Name_norm"] = abr["Entity_Name"].apply(normalize_name)
