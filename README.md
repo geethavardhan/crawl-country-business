@@ -22,9 +22,9 @@ The project extracts business data from data.gov.au and matches it with business
 2. **Transform**: Clean, match, and enrich using RapidFuzz.
 3. **Load**: Write CSVs to S3, then import results to Postgres.
 
-
 ## DAG Workflow: Extract → Process → Domain Match → Load
 
+```text
        Extract Phase (Parallel)
 ┌───────────────────────┐   ┌────────────────────┐
 │ extract_common_crawl   │   │ extract_au_abr     │
@@ -48,6 +48,7 @@ The project extracts business data from data.gov.au and matches it with business
 ┌──────────────────────────┐
 │ load_postgres.py         │
 └──────────────────────────┘
+
 
 
 This approach ensures a scalable, reproducible workflow for linking Australian business entities with their possible web domains using open government and web-scale data.
