@@ -8,7 +8,7 @@ from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import glob
 import os 
-
+import csv
 # -------------------
 # CONFIG
 # -------------------
